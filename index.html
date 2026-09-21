@@ -1,0 +1,503 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <title>Game Guide Hub | Gaming Guides, Tips & Builds</title>
+  <meta name="description" content="Game Guide Hub - gaming guides, tips, builds, strategies and useful gaming information.">
+
+  <style>
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      font-family: Arial, Helvetica, sans-serif;
+      background: #080b14;
+      color: #ffffff;
+      line-height: 1.6;
+    }
+
+    /* HEADER */
+    header {
+      background: linear-gradient(135deg, #10162b, #17102d);
+      border-bottom: 1px solid #272d45;
+      padding: 18px 6%;
+      position: sticky;
+      top: 0;
+      z-index: 100;
+    }
+
+    .nav {
+      max-width: 1200px;
+      margin: auto;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 20px;
+    }
+
+    .logo {
+      font-size: 24px;
+      font-weight: bold;
+      color: #7c5cff;
+      text-decoration: none;
+    }
+
+    .logo span {
+      color: #00e5ff;
+    }
+
+    nav a {
+      color: #ddd;
+      text-decoration: none;
+      margin-left: 20px;
+      font-size: 14px;
+    }
+
+    nav a:hover {
+      color: #00e5ff;
+    }
+
+    /* HERO */
+    .hero {
+      text-align: center;
+      padding: 75px 20px;
+      background:
+        radial-gradient(circle at top, #28205a 0%, transparent 45%),
+        #080b14;
+    }
+
+    .hero h1 {
+      font-size: clamp(38px, 8vw, 72px);
+      margin-bottom: 15px;
+      background: linear-gradient(90deg, #7c5cff, #00e5ff);
+      -webkit-background-clip: text;
+      color: transparent;
+    }
+
+    .hero p {
+      color: #b9bfd3;
+      max-width: 700px;
+      margin: auto;
+      font-size: 18px;
+    }
+
+    .hero-btn {
+      display: inline-block;
+      margin-top: 30px;
+      padding: 13px 25px;
+      border-radius: 10px;
+      background: linear-gradient(90deg, #7c5cff, #00bcd4);
+      color: white;
+      text-decoration: none;
+      font-weight: bold;
+    }
+
+    /* SEARCH */
+    .search-box {
+      max-width: 700px;
+      margin: -25px auto 45px;
+      padding: 0 20px;
+      position: relative;
+      z-index: 2;
+    }
+
+    #search {
+      width: 100%;
+      padding: 17px 20px;
+      border: 1px solid #343b58;
+      border-radius: 12px;
+      background: #111626;
+      color: white;
+      outline: none;
+      font-size: 16px;
+    }
+
+    #search:focus {
+      border-color: #7c5cff;
+    }
+
+    /* MAIN */
+    main {
+      max-width: 1200px;
+      margin: auto;
+      padding: 20px;
+    }
+
+    .section-title {
+      text-align: center;
+      margin-bottom: 30px;
+    }
+
+    .section-title h2 {
+      font-size: 32px;
+    }
+
+    .section-title p {
+      color: #8991aa;
+    }
+
+    /* CARDS */
+    .games {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 20px;
+    }
+
+    .card {
+      background: linear-gradient(145deg, #12182a, #0d1120);
+      border: 1px solid #272e47;
+      border-radius: 16px;
+      padding: 25px;
+      transition: 0.25s;
+    }
+
+    .card:hover {
+      transform: translateY(-6px);
+      border-color: #7c5cff;
+      box-shadow: 0 10px 35px rgba(124, 92, 255, 0.15);
+    }
+
+    .game-icon {
+      width: 60px;
+      height: 60px;
+      border-radius: 15px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 28px;
+      background: #202743;
+      margin-bottom: 18px;
+    }
+
+    .card h3 {
+      font-size: 21px;
+      margin-bottom: 8px;
+    }
+
+    .card p {
+      color: #9299b0;
+      font-size: 14px;
+      margin-bottom: 18px;
+    }
+
+    .guide-btn {
+      display: inline-block;
+      padding: 9px 15px;
+      border-radius: 8px;
+      background: #202744;
+      color: #fff;
+      text-decoration: none;
+      font-size: 14px;
+    }
+
+    .guide-btn:hover {
+      background: #7c5cff;
+    }
+
+    /* FEATURES */
+    .features {
+      margin-top: 80px;
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+      gap: 20px;
+    }
+
+    .feature {
+      text-align: center;
+      background: #101525;
+      padding: 25px;
+      border-radius: 14px;
+      border: 1px solid #252c43;
+    }
+
+    .feature .emoji {
+      font-size: 35px;
+      margin-bottom: 10px;
+    }
+
+    .feature p {
+      color: #9299b0;
+      font-size: 14px;
+    }
+
+    /* ABOUT */
+    .about {
+      margin-top: 80px;
+      padding: 40px 25px;
+      background: linear-gradient(135deg, #11182c, #17112a);
+      border: 1px solid #292f49;
+      border-radius: 18px;
+      text-align: center;
+    }
+
+    .about h2 {
+      margin-bottom: 15px;
+    }
+
+    .about p {
+      max-width: 750px;
+      margin: auto;
+      color: #a8aec1;
+    }
+
+    /* FOOTER */
+    footer {
+      margin-top: 80px;
+      padding: 35px 20px;
+      text-align: center;
+      border-top: 1px solid #242a40;
+      color: #737b94;
+    }
+
+    footer strong {
+      color: #7c5cff;
+    }
+
+    /* MOBILE */
+    @media (max-width: 600px) {
+      header {
+        padding: 15px;
+      }
+
+      .nav {
+        flex-direction: column;
+      }
+
+      nav a {
+        margin: 0 7px;
+      }
+
+      .hero {
+        padding: 55px 15px;
+      }
+
+      .hero p {
+        font-size: 15px;
+      }
+
+      .games {
+        grid-template-columns: 1fr;
+      }
+    }
+  </style>
+</head>
+
+<body>
+
+  <!-- HEADER -->
+  <header>
+    <div class="nav">
+      <a href="#" class="logo">GAME<span>GUIDE</span>HUB</a>
+
+      <nav>
+        <a href="#games">Games</a>
+        <a href="#features">Features</a>
+        <a href="#about">About</a>
+      </nav>
+    </div>
+  </header>
+
+  <!-- HERO -->
+  <section class="hero">
+    <h1>Game Guide Hub</h1>
+
+    <p>
+      Your gaming knowledge hub for guides, tips, builds,
+      strategies and useful information.
+    </p>
+
+    <a href="#games" class="hero-btn">Explore Guides</a>
+  </section>
+
+  <!-- SEARCH -->
+  <div class="search-box">
+    <input
+      type="text"
+      id="search"
+      placeholder="🔎 Search for a game..."
+      onkeyup="searchGames()"
+    >
+  </div>
+
+  <!-- GAMES -->
+  <main>
+
+    <section id="games">
+      <div class="section-title">
+        <h2>🎮 Game Guides</h2>
+        <p>Choose a game and explore its guides.</p>
+      </div>
+
+      <div class="games" id="gameList">
+
+        <article class="card">
+          <div class="game-icon">🔥</div>
+          <h3>Free Fire</h3>
+          <p>
+            Sensitivity, weapons, characters, strategies,
+            settings and gameplay tips.
+          </p>
+          <a href="#" class="guide-btn">View Guides →</a>
+        </article>
+
+        <article class="card">
+          <div class="game-icon">🏴‍☠️</div>
+          <h3>Blox Fruits</h3>
+          <p>
+            Fruits, fighting styles, swords, leveling,
+            quests and progression guides.
+          </p>
+          <a href="#" class="guide-btn">View Guides →</a>
+        </article>
+
+        <article class="card">
+          <div class="game-icon">🏎️</div>
+          <h3>CarX Street</h3>
+          <p>
+            Cars, tuning, graphics settings, controls
+            and racing tips.
+          </p>
+          <a href="#" class="guide-btn">View Guides →</a>
+        </article>
+
+        <article class="card">
+          <div class="game-icon">⚔️</div>
+          <h3>Blood Strike</h3>
+          <p>
+            Weapons, operators, loadouts, gameplay tips
+            and strategies.
+          </p>
+          <a href="#" class="guide-btn">View Guides →</a>
+        </article>
+
+        <article class="card">
+          <div class="game-icon">🦖</div>
+          <h3>ARK Mobile</h3>
+          <p>
+            Survival tips, creatures, crafting,
+            progression and exploration.
+          </p>
+          <a href="#" class="guide-btn">View Guides →</a>
+        </article>
+
+        <article class="card">
+          <div class="game-icon">🌍</div>
+          <h3>More Games</h3>
+          <p>
+            More gaming guides will be added to
+            Game Guide Hub.
+          </p>
+          <a href="#" class="guide-btn">Coming Soon →</a>
+        </article>
+
+      </div>
+    </section>
+
+    <!-- FEATURES -->
+    <section id="features" class="features">
+
+      <div class="feature">
+        <div class="emoji">📚</div>
+        <h3>Detailed Guides</h3>
+        <p>
+          Easy-to-understand gaming guides and tutorials.
+        </p>
+      </div>
+
+      <div class="feature">
+        <div class="emoji">⚡</div>
+        <h3>Gaming Tips</h3>
+        <p>
+          Useful tips to help you understand your games.
+        </p>
+      </div>
+
+      <div class="feature">
+        <div class="emoji">🎯</div>
+        <h3>Builds & Settings</h3>
+        <p>
+          Find useful builds, settings and strategies.
+        </p>
+      </div>
+
+      <div class="feature">
+        <div class="emoji">📱</div>
+        <h3>Mobile Friendly</h3>
+        <p>
+          Designed to work smoothly on phones, tablets
+          and computers.
+        </p>
+      </div>
+
+    </section>
+
+    <!-- ABOUT -->
+    <section id="about" class="about">
+      <h2>About Game Guide Hub</h2>
+
+      <p>
+        Game Guide Hub is a gaming information website
+        created for players who want simple and useful
+        guides, tips, strategies and game information.
+      </p>
+    </section>
+
+  </main>
+
+  <!-- FOOTER -->
+  <footer>
+    <p>
+      © 2026 <strong>Game Guide Hub</strong>.
+      All rights reserved.
+    </p>
+
+    <p>
+      Built for gamers 🎮
+    </p>
+  </footer>
+
+
+  <!-- SEARCH SCRIPT -->
+  <script>
+    function searchGames() {
+
+      const input = document
+        .getElementById("search")
+        .value
+        .toLowerCase();
+
+      const cards = document
+        .getElementById("gameList")
+        .getElementsByClassName("card");
+
+      for (let i = 0; i < cards.length; i++) {
+
+        const title = cards[i]
+          .getElementsByTagName("h3")[0]
+          .innerText
+          .toLowerCase();
+
+        const description = cards[i]
+          .getElementsByTagName("p")[0]
+          .innerText
+          .toLowerCase();
+
+        if (
+          title.includes(input) ||
+          description.includes(input)
+        ) {
+          cards[i].style.display = "";
+        } else {
+          cards[i].style.display = "none";
+        }
+      }
+    }
+  </script>
+
+</body>
+</html>
